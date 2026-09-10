@@ -158,6 +158,11 @@
     opacity: 1;
   }
 
+  .photo-panel img.native{
+    object-fit: contain;
+    background: var(--ink);
+  }
+
   .photo-nav{
     position: absolute;
     top: 50%;
@@ -169,14 +174,14 @@
     background: none;
     cursor: pointer;
     color: #fff;
-    opacity: 0.45;
+    opacity: 0.7;
     transition: opacity 0.15s ease;
     padding: 0;
   }
 
   .photo-nav:hover,
   .photo-nav:focus-visible{
-    opacity: 0.85;
+    opacity: 1;
   }
 
   .photo-nav svg{
@@ -241,7 +246,7 @@
 
     <aside class="photo-panel" id="photoPanel">
       <img src="photo.jpg" alt="Henry Arthur" class="active">
-      <img src="climbing.jpg" alt="Henry Arthur climbing">
+      <img src="climbing.jpg" alt="Henry Arthur climbing" class="native">
       <button class="photo-nav" id="photoNav" aria-label="Show next photo" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
       </button>
