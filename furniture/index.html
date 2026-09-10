@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furniture — Henry Arthur</title>
+<style>
+  :root{
+    --bg: #FFFFFF;
+    --ink: #1C1B19;
+    --meta: #6E6A61;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{ margin:0; padding:0; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a{ color: inherit; }
+
+  .gallery{
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .frame{
+    position: relative;
+    width: min(60vw, 640px);
+    height: min(75vh, 640px);
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .frame img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .frame img.active{
+    opacity: 1;
+  }
+
+  .caption{
+    text-align: center;
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    color: var(--meta);
+  }
+
+  .nav-btn{
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--ink);
+    opacity: 0.4;
+    padding: 0.5rem;
+    transition: opacity 0.15s ease;
+  }
+
+  .nav-btn:hover,
+  .nav-btn:focus-visible{
+    opacity: 0.9;
+  }
+
+  .nav-btn svg{
+    width: 1.6rem;
+    height: 1.6rem;
+    display: block;
+  }
+
+  .back{
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--meta);
+    text-decoration: none;
+  }
+
+  .back:hover{
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+  <a class="back" href="../index.html">&larr; back</a>
+
+  <div>
+    <div class="gallery">
+      <button class="nav-btn" id="prevBtn" aria-label="Previous photo" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg>
+      </button>
+
+      <div class="frame" id="frame">
+        <img src="stool-walnut-1.jpg" data-caption="Stool in walnut" class="active">
+        <img src="stool-walnut-2.jpg" data-caption="Stool in walnut">
+        <img src="stool-walnut-3.jpg" data-caption="Stool in walnut">
+        <img src="cord-walnut-1.jpg" data-caption="Danish cord in walnut">
+        <img src="cord-walnut-2.jpg" data-caption="Danish cord in walnut">
+        <img src="cord-oak-1.jpg" data-caption="Danish cord in white oak">
+        <img src="cord-oak-2.jpg" data-caption="Danish cord in white oak">
+      </div>
+
+      <button class="nav-btn" id="nextBtn" aria-label="Next photo" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+      </button>
+    </div>
+
+    <p class="caption" id="caption">Stool in walnut</p>
+  </div>
+
+  <script>
+    (function(){
+      var imgs = document.querySelectorAll('#frame img');
+      var caption = document.getElementById('caption');
+      var idx = 0;
+
+      function show(i){
+        imgs[idx].classList.remove('active');
+        idx = (i + imgs.length) % imgs.length;
+        imgs[idx].classList.add('active');
+        caption.textContent = imgs[idx].getAttribute('data-caption');
+      }
+
+      document.getElementById('prevBtn').addEventListener('click', function(){ show(idx - 1); });
+      document.getElementById('nextBtn').addEventListener('click', function(){ show(idx + 1); });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'ArrowLeft') show(idx - 1);
+        if(e.key === 'ArrowRight') show(idx + 1);
+      });
+    })();
+  </script>
+</body>
+</html>
