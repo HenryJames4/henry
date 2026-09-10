@@ -169,22 +169,24 @@
   .photo-nav{
     position: absolute;
     top: 50%;
-    right: -0.25rem;
+    right: 0.6rem;
     transform: translateY(-50%);
-    width: 2rem;
-    height: 2rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border: none;
-    background: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.85);
     cursor: pointer;
     color: var(--ink);
-    opacity: 0.4;
+    opacity: 0.85;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.25);
     transition: opacity 0.15s ease;
-    padding: 0;
+    padding: 0.6rem;
   }
 
   .photo-nav:hover,
   .photo-nav:focus-visible{
-    opacity: 0.9;
+    opacity: 1;
   }
 
   .photo-nav svg{
