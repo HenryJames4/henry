@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name</title>
+<style>
+  :root{
+    --bg: #FFFFFF;
+    --ink: #1C1B19;
+    --ink-soft: #4A473F;
+    --meta: #6E6A61;
+    --accent: #33475B;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{ margin:0; padding:0; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .page{
+    display: grid;
+    grid-template-columns: 1fr 34%;
+    height: 100vh;
+  }
+
+  .content{
+    padding: 2.5rem 3rem;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .intro h1{
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0 0 0.35rem;
+  }
+
+  .role{
+    font-size: 0.9rem;
+    color: var(--meta);
+    margin: 0 0 1rem;
+  }
+
+  .bio{
+    max-width: 36em;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .block{
+    margin-top: 1.75rem;
+  }
+
+  .block h2{
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+  }
+
+  .block p{
+    max-width: 36em;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .pubs{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+  }
+
+  .pubs li{
+    max-width: 38em;
+    padding-left: 1.4em;
+    text-indent: -1.4em;
+    color: var(--ink-soft);
+  }
+
+  .pub-title{
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .links{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+  }
+
+  .links a{
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+
+  .links a:hover,
+  .links a:focus-visible{
+    border-bottom-color: var(--accent);
+  }
+
+  .foot{
+    margin-top: 1.75rem;
+    color: var(--meta);
+    font-size: 0.8rem;
+  }
+
+  .photo-panel{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .photo-panel img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 800px){
+    .page{
+      grid-template-columns: 1fr;
+    }
+    .content{
+      order: 2;
+      padding: 3rem 1.75rem 3.5rem;
+    }
+    .photo-panel{
+      order: 1;
+      position: static;
+      height: 62vh;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <main class="content">
+      <header class="intro">
+        <h1>Your Name</h1>
+        <p class="role">Field or role — Institution</p>
+        <p class="bio">Short bio placeholder — two or three sentences on your research focus, background, and what you're currently working on.</p>
+      </header>
+
+      <section class="block">
+        <h2>Research</h2>
+        <p>Placeholder paragraph describing your research interests, current questions, and methods. Keep this to a few sentences.</p>
+      </section>
+
+      <section class="block">
+        <h2>Publications</h2>
+        <ul class="pubs">
+          <li><span class="pub-authors">Author, A., &amp; Author, B.</span> (Year). <span class="pub-title">Title of the paper goes here.</span> <span class="pub-venue">Journal or Conference Name.</span></li>
+          <li><span class="pub-authors">Author, A.</span> (Year). <span class="pub-title">Title of the paper goes here.</span> <span class="pub-venue">Journal or Conference Name.</span></li>
+          <li><span class="pub-authors">Author, A., Author, B., &amp; Author, C.</span> (Year). <span class="pub-title">Title of the paper goes here.</span> <span class="pub-venue">Journal or Conference Name.</span></li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Contact</h2>
+        <ul class="links">
+          <li><a href="mailto:you@example.com">Email</a></li>
+          <li><a href="#">CV</a></li>
+          <li><a href="#">Google Scholar</a></li>
+          <li><a href="#">GitHub</a></li>
+        </ul>
+      </section>
+
+      <footer class="foot">
+        <p>Last updated Month Year.</p>
+      </footer>
+    </main>
+
+    <aside class="photo-panel">
+      <img src="photo.jpg" alt="Profile photo">
+    </aside>
+  </div>
+</body>
+</html>
