@@ -38,9 +38,12 @@
   }
 
   .content{
-    padding: 2.5rem 3rem;
-    max-height: 100vh;
-    overflow-y: auto;
+    padding: 2rem 3rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
   }
 
   .intro h1{
@@ -65,7 +68,7 @@
   }
 
   .block{
-    margin-top: 1.75rem;
+    margin-top: 1.4rem;
   }
 
   .block h2{
@@ -127,7 +130,7 @@
   }
 
   .foot{
-    margin-top: 1.75rem;
+    margin-top: 1.4rem;
     color: var(--meta);
     font-size: 0.8rem;
   }
@@ -154,6 +157,9 @@
     .content{
       order: 2;
       padding: 3rem 1.75rem 3.5rem;
+      height: auto;
+      display: block;
+      overflow: visible;
     }
     .photo-panel{
       order: 1;
@@ -169,17 +175,12 @@
       <header class="intro">
         <h1>Henry Arthur</h1>
         <p class="role">M.Sc. Student, Cognitive Science — University of Trento (CIMeC) &amp; Ev's Language Lab, MIT</p>
-        <p class="bio">I'm broadly interested in language and reasoning in human and artificial intelligence: how we measure model&ndash;human alignment, and what's required to build machines that are general solvers. I'm also curious how these questions should inform how we regulate and treat AI in daily life. When I'm not thinking about any of this, I'm out climbing rock and ice.</p>
+        <p class="bio">I am broadly interested in language and reasoning in human and artificial intelligence. How can we measure model-human alignment, and what is required to develop machines that are general solvers? I am also curious how these questions inform the way we regulate and treat AI in our daily lives. I spend as much time as I can climbing rock and ice.</p>
       </header>
 
       <section class="block">
-        <h2>Research</h2>
-        <p>My work sits at the intersection of cognitive science and NLP, asking whether — and how — large language and reasoning models solve problems the way humans do, and what that alignment (or lack of it) tells us about building genuinely general reasoners and about the policies that should govern them.</p>
-      </section>
-
-      <section class="block">
         <h2>Background</h2>
-        <p>Before my current work, I did research at NASA on AI tooling to help prepare for future Mars missions, and before that at Fermilab on the <a href="https://en.wikipedia.org/wiki/Mu2e" target="_blank" rel="noopener">Mu2e</a> experiment.</p>
+        <p>Previously, I spent time doing research at NASA, working on AI tooling to prepare for future Mars missions, and before that at Fermilab on the <a href="https://en.wikipedia.org/wiki/Mu2e" target="_blank" rel="noopener">Mu2e</a> experiment.</p>
       </section>
 
       <section class="block">
@@ -192,10 +193,8 @@
       <section class="block">
         <h2>Contact</h2>
         <ul class="links">
-          <li><a href="mailto:h.jamesarthur@gmail.com">Email</a></li>
           <li><a href="https://drive.google.com/file/d/10TKEM6PBuRZxYIUUPJxIRtIB4HWCUtLx/view?usp=drive_link" target="_blank" rel="noopener">CV</a></li>
           <li><a href="https://scholar.google.com/citations?user=1kKAQEwAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
-          <li><a href="https://github.com/HenryJames4" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
       </section>
 
