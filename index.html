@@ -141,17 +141,49 @@
     height: 100vh;
     background: var(--bg);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
   }
 
   .photo-panel img{
+    position: absolute;
+    inset: 0;
     width: 100%;
-    flex: 1 1 50%;
-    min-height: 0;
+    height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .photo-panel img.active{
+    opacity: 1;
+  }
+
+  .photo-nav{
+    position: absolute;
+    top: 50%;
+    right: 0.9rem;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #fff;
+    opacity: 0.45;
+    transition: opacity 0.15s ease;
+    padding: 0;
+  }
+
+  .photo-nav:hover,
+  .photo-nav:focus-visible{
+    opacity: 0.85;
+  }
+
+  .photo-nav svg{
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
   }
 
   @media (max-width: 800px){
@@ -169,7 +201,6 @@
       order: 1;
       position: static;
       height: 62vh;
-      flex-direction: row;
     }
   }
 </style>
@@ -208,10 +239,25 @@
       </footer>
     </main>
 
-    <aside class="photo-panel">
-      <img src="photo.jpg" alt="Henry Arthur">
+    <aside class="photo-panel" id="photoPanel">
+      <img src="photo.jpg" alt="Henry Arthur" class="active">
       <img src="climbing.jpg" alt="Henry Arthur climbing">
+      <button class="photo-nav" id="photoNav" aria-label="Show next photo" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+      </button>
     </aside>
   </div>
+
+  <script>
+    (function(){
+      var imgs = document.querySelectorAll('#photoPanel img');
+      var idx = 0;
+      document.getElementById('photoNav').addEventListener('click', function(){
+        imgs[idx].classList.remove('active');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.add('active');
+      });
+    })();
+  </script>
 </body>
 </html>
